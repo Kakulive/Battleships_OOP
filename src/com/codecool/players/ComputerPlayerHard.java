@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.players;
 
 public class ComputerPlayerHard extends ComputerPlayer{
     @Override

@@ -1,4 +1,6 @@
-package com.codecool;
+package com.codecool.players;
+import com.codecool.squares.Ship;
+
 import java.util.List;
 
 public class Player {

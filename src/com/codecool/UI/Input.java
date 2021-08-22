@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.UI;
 
 import java.util.Scanner;
 

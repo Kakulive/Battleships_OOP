@@ -1,13 +1,16 @@
 package com.codecool;
 
+import com.codecool.squares.Board;
+
 public class Game {
-    private final String pvp = "pvp";
-    private final String pvc = "pvc";
-    private final String cvc = "cvc";
+
+    private GameMode gameMode;
+    private Board board;
 
 
-    Board board = new Board();
-
+    public GameMode getGameMode() {
+        return gameMode;
+    }
 
     public void move(){};
 
@@ -16,3 +19,4 @@ public class Game {
     };
 
 }
+

@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.squares;
 
 import java.util.List;
 

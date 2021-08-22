@@ -1,4 +1,4 @@
-package com.codecool;
+package com.codecool.UI;
 
 public class Display {
 
