@@ -7,6 +7,12 @@ public class Input {
 
     public boolean isValid(){
         return true;
-    };
+    }
+
+    public int getBoardSize(){
+        System.out.println("Kindly enter the desired size of the board: ");
+
+        return sc.nextInt();
+    }
 
 }
