@@ -7,13 +7,20 @@ public class Square {
     private SquareStatus squareStatus;
 
     public String getCharacter(SquareStatus status){
-        return switch (status) {
-            case EMPTY -> "\033[0;94m" + "\uD83C\uDF0A";
-            case HIT -> "\033[0;91m" + "\uD83D\uDCA5";
-            case SHIP -> "\033[0;97m" + "\uD83D\uDEA2";
-            case SUNKEN -> "\033[0;97m" + "⚓";
-            case MISSED -> "\033[0;96m" + "\uD83D\uDC1F";
-        };
+        switch (status){
+            case EMPTY:
+                return  "\033[0;94m" + "\uD83C\uDF0A";
+            case HIT:
+                return "\033[0;91m" + "\uD83D\uDCA5";
+            case SHIP:
+                return "\033[0;97m" + "\uD83D\uDEA2";
+            case SUNKEN:
+                return "\033[0;97m" + "⚓";
+            case MISSED:
+                return "\033[0;96m" + "\uD83D\uDC1F";
+            default:
+                return null;
+        }
     }
 
     public int getX() {
