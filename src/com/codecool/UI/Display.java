@@ -35,11 +35,16 @@ public class Display {
         }
         return new String[] {"0"};
     }
-
+    public int getBoardSize(){
+        System.out.println("Please provide board size in range 5 - 10.");
+        int boardSize = input.getBoardSize();
+        return boardSize;
+    }
 
     public void printBoard(){};
     public void printGameplay(){};
     public void printOutcome(){};
+
     public void printWrongValueAlert(String valueRange){
         System.out.println("Please provide correct value in " + valueRange + ".");
     }

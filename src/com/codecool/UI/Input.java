@@ -1,6 +1,7 @@
 package com.codecool.UI;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 import com.codecool.UI.Display;
 
@@ -8,8 +9,6 @@ import static java.lang.Integer.parseInt;
 
 public class Input {
     Scanner sc = new Scanner(System.in);
-//    Display display = new Display();
-
 
     public boolean isValid(){
         return true;
@@ -27,21 +26,28 @@ public class Input {
         return null;
     };
 
+    public int getBoardSize() {
+        String bS = sc.nextLine();
+//        if (bS.equals("5") || bS.equals("6") ||bS.equals("7") ||bS.equals("8") ||bS.equals("9") ||bS.equals("10"))
+        if (Arrays.asList("5", "6", "7", "8"," 9", "10").contains(bS)){
+            return Integer.parseInt(bS);
+        } else {
+//TODO alert
+            getBoardSize();
+        }
+        return 0;
+    };
+
     protected String getPlayerName(){
         String playerName = sc.nextLine();
         if (playerName.length() > 2){
             return playerName;
         }
         else {
-//            display.printWrongNameAlert();
+            //TODO alert
+//            Display.printWrongNameAlert();
             getPlayerName();
         }
         return null;
     }
-    public int getBoardSize(){
-        System.out.println("Kindly enter the desired size of the board: ");
-
-        return sc.nextInt();
     }
-
-}
