@@ -10,12 +10,13 @@ public class Battleship {
     private Boolean exit = false;
 
     public Battleship() {
+
         do {
             display.printMainMenu();
             int decision = input.getMode();
             switch (decision) {
                 case 1:
-                    Game game = new Game();
+                    Game game = new Game(display, input);
                 case 2:
                     display.printHighScore();
                     return;

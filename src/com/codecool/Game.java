@@ -6,46 +6,70 @@ import com.codecool.players.ComputerPlayer;
 import com.codecool.players.HumanPlayer;
 import com.codecool.players.Player;
 import com.codecool.squares.Board;
+import com.codecool.squares.BoardFactory;
 
 public class Game {
-    protected int boardSize;
+    private Player player1;
+    private Player player2;
+    private final BoardFactory boardFactory;
+    private final Display display;
+    private final Input input;
     private GameMode gameMode;
-    private Board board;
-    Display display = new Display();
-    Input input = new Input();
 
-    public Game(){
-        display.printGameMode();
-        int gameModeNumber = input.getMode();
-        switch (gameModeNumber){
-            case 1: gameMode = GameMode.PVP;
-            case 2: gameMode = GameMode.PVC;
-            case 3: gameMode = GameMode.CVC;
-        }
+    private Board boardPlayer1 = new Board();
+    private Board boardPlayer2 = new Board();
+
+    private Board shootingBoardPlayer1 = new Board();
+    private Board shootingBoardPlayer2 = new Board();
+
+    private Board placementBoardPlayer1 = new Board();
+    private Board placementBoardPlayer2 = new Board();
+
+
+    public Game(Display display, Input input){
+        this.display = display;
+        this.input = input;
+        this.gameMode = chooseGameMode();
+        this.boardFactory = new BoardFactory(display, input);
 
         switch (gameMode){
             case PVP, PVC -> {
-                Player player1 = new HumanPlayer(display, input);
+                this.player1 = new HumanPlayer(display, input);
             }
             case CVC ->{
-                Player player1 = new ComputerPlayer();
+                this.player1 = new ComputerPlayer();
             }
         }
+
         switch (gameMode){
             case PVP -> {
-                Player player2 = new HumanPlayer(display, input);
+                this.player2 = new HumanPlayer(display, input);
             }
             case CVC, PVC ->{
-                Player player2 = new ComputerPlayer();
+                this.player2 = new ComputerPlayer();
             }
         }
-
-        display.getBoardSize();
-        int BoardSize = input.getBoardSize();
-        Board board = new Board(BoardSize);
-
     }
 
+    private GameMode chooseGameMode() {
+        display.printGameMode();
+        int gameModeNumber = input.getValue(1, 3);
+        switch (gameModeNumber) {
+            case 1:
+                display.printMessage("You chose Player vs Player mode.");
+                this.gameMode = GameMode.PVP;
+                break;
+            case 2:
+                display.printMessage("You chose Player vs computer mode.");
+                gameMode = GameMode.PVC;
+                break;
+            case 3:
+                display.printMessage("You chose computer vs computer mode.");
+                gameMode = GameMode.CVC;
+                break;
+        }
+        return gameMode;
+    }
 
     public GameMode getGameMode() {
         return gameMode;
@@ -58,4 +82,3 @@ public class Game {
     };
 
 }
-

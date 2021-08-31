@@ -18,7 +18,7 @@ public class Input {
     public int getMode(){
         String mode = sc.nextLine();
         if (mode.equals("1") || mode.equals("2") || mode.equals("3")) {
-             return Integer.parseInt(mode);
+            return Integer.parseInt(mode);
         }
         else {
             display.printWrongValueAlert("1 to 3");
@@ -41,19 +41,21 @@ public class Input {
 
     public int getValue(int minValue, int maxValue) {
         String userInput = sc.next();
-         if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= minValue) {
-             return Integer.parseInt(userInput);
-         }
-         else {
-             display.printWrongValueAlert(String.format("%s to %s", minValue, maxValue));
-             getValue(minValue, maxValue);
-         }
+        if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= minValue) {
+            return Integer.parseInt(userInput);
+        }
+        else {
+            display.printWrongValueAlert(String.format("%s to %s", minValue, maxValue));
+            getValue(minValue, maxValue);
+        }
 
-         return 0;
+        return 0;
     };
+
 
     public String getName(){
         String name = sc.nextLine();
         return name;
     }
+
 }
