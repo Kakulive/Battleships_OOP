@@ -13,19 +13,24 @@ public class Battleship {
 
     public Battleship() {
         display.printMainMenu();
-        int decision = input.getMode();
+        int decision = input.getValue(1, 3);
         switch (decision) {
             case 1:
                 Player player1 = new HumanPlayer(display, input);
                 Player player2 = new HumanPlayer(display, input);
+                Game game = new Game(player1, player2, display, input);
+                break;
             case 2:
                 display.printHighScore();
                 return;
-            case 3:
+
+            case 3: {
                 display.printGameExit();
                 return;
+            }
+
+
         }
-        Game game = new Game();
 
 
 

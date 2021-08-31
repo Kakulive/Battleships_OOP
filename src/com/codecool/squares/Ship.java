@@ -1,9 +1,10 @@
 package com.codecool.squares;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ship {
-    List<Square> squaresList;
+    ArrayList<Square> squaresList;
     protected ShipType shipType;
 
     public ShipType getShipType() {

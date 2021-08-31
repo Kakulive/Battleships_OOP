@@ -2,9 +2,18 @@ package com.codecool.squares;
 
 public class Square {
 
+
     protected int x;
     protected int y;
     private SquareStatus squareStatus;
+
+
+    public Square(int x, int y, SquareStatus squareStatus) {
+        this.x = x;
+        this.y = y;
+        this.squareStatus = squareStatus;
+    }
+
 
     public String getCharacter(SquareStatus status){
         switch (status){
