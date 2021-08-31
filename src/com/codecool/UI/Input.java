@@ -41,7 +41,7 @@ public class Input {
 
     public int getValue(int minValue, int maxValue) {
         String userInput = sc.next();
-        if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= minValue) {
+        if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= maxValue) {
             return Integer.parseInt(userInput);
         }
         else {
@@ -54,7 +54,7 @@ public class Input {
 
 
     public String getName(){
-        String name = sc.nextLine();
+        String name = sc.next();
         return name;
     }
 

@@ -10,22 +10,21 @@ public class Battleship {
     private Boolean exit = false;
 
     public Battleship() {
-
         do {
             display.printMainMenu();
             int decision = input.getMode();
             switch (decision) {
                 case 1:
                     Game game = new Game(display, input);
-                    return;
+                    break;
                 case 2:
                     display.printHighScore();
-                    return;
+                    break;
                 case 3:
                     display.printGameExit();
-                    exit = true;
-                    return;
+                    this.exit = true;
+                    break;
             }
-        } while (exit = false);
+        } while (this.exit == false);
     }
 }

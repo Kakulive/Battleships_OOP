@@ -9,6 +9,7 @@ public class HumanPlayer extends Player{
 
 
     public HumanPlayer(Display display, Input input) {
+        super();
         display.printAskPlayerName();
         name = input.getName();
     }
