@@ -16,9 +16,8 @@ public class Battleship {
         int decision = input.getValue(1, 3);
         switch (decision) {
             case 1:
-                Player player1 = new HumanPlayer(display, input);
-                Player player2 = new HumanPlayer(display, input);
-                Game game = new Game(player1, player2, display, input);
+
+                Game game = new Game(display, input);
                 break;
             case 2:
                 display.printHighScore();
