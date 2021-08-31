@@ -8,11 +8,13 @@ public class Square {
     private SquareStatus squareStatus;
 
 
-    public Square(int x, int y, SquareStatus squareStatus) {
+    public Square(int y, int x, SquareStatus squareStatus) {
         this.x = x;
         this.y = y;
         this.squareStatus = squareStatus;
     }
+
+
 
 
     public String getCharacter(SquareStatus status){
@@ -51,6 +53,7 @@ public class Square {
     public SquareStatus getSquareStatus() {
         return squareStatus;
     }
+
 
     public void setSquareStatus(SquareStatus squareStatus) {
         this.squareStatus = squareStatus;
