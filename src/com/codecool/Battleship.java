@@ -1,6 +1,6 @@
 package com.codecool;
 
-import com.codecool.UI.Display ;
+import com.codecool.UI.Display;
 import com.codecool.UI.Input;
 import com.codecool.players.HumanPlayer;
 import com.codecool.players.Player;
