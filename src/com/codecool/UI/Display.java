@@ -28,6 +28,10 @@ public class Display {
         System.out.println("If you want to choose mode computer vs computer, please select 3.");
     }
 
+    public void printDifficultyLevels() {
+        System.out.println("Please select the difficulty level from 1 to 3, where 1 is the easiest.");
+    }
+
     public void printGameExit() {
         System.out.println("You are going to exit!");
         System.out.println("See you again");
