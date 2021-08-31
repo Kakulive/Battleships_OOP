@@ -17,14 +17,20 @@ public class BoardFactory
     }
 
     public void choosePlacement(Board playerBoard, Board placementBoard){
-
+        display.printPlacementMode();
+        int placementMode = input.getValue(1,2);
+        switch (placementMode){
+            case 1: {manualPlacement(playerBoard, placementBoard);
+                break;}
+            case 2: {randomPlacement(playerBoard, placementBoard);
+                break;}
+        }
 
     }
 
 
-
-    public void randomPlacement(){ };
-    public void manualPlacement(){
+    public void randomPlacement(Board playerBoard, Board placementBoard){ };
+    public void manualPlacement(Board playerBoard, Board placementBoard){
 
     };
 
