@@ -4,11 +4,9 @@ public class BoardFactory
 {
 
 
-    public Board randomPlacement(){
-        return new Board();
-    };
-    public Board manualPlacement(){
-        return new Board();
+    public void randomPlacement(){ };
+    public void manualPlacement(){
+
     };
 
 

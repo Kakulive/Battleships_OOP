@@ -4,16 +4,9 @@ import java.util.List;
 
 public class Ship {
     List<Square> squaresList;
-    protected String ShipType;
+    protected ShipType shipType;
 
-
-    public String getShipType() {
-        return ShipType;
+    public ShipType getShipType() {
+        return shipType;
     }
-
-    public void setShipType(String shipType) {
-        ShipType = shipType;
-    }
-
-
 }

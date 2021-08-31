@@ -4,8 +4,11 @@ import com.codecool.squares.Ship;
 import java.util.List;
 
 public class Player {
-
     List<Ship> shipList;
+
+    public Player() {
+
+    }
 
     public boolean isAlive(){
         return false;
