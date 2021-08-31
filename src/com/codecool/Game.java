@@ -35,18 +35,22 @@ public class Game {
         switch (gameMode){
             case PVP, PVC -> {
                 this.player1 = new HumanPlayer(display, input);
+                break;
             }
             case CVC ->{
                 this.player1 = new ComputerPlayer();
+                break;
             }
         }
 
         switch (gameMode){
             case PVP -> {
                 this.player2 = new HumanPlayer(display, input);
+                break;
             }
             case CVC, PVC ->{
                 this.player2 = new ComputerPlayer();
+                break;
             }
         }
     }

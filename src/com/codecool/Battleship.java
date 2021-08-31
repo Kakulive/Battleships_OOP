@@ -17,6 +17,7 @@ public class Battleship {
             switch (decision) {
                 case 1:
                     Game game = new Game(display, input);
+                    return;
                 case 2:
                     display.printHighScore();
                     return;
