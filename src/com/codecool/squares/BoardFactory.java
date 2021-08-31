@@ -16,6 +16,11 @@ public class BoardFactory
         this.input = input;
     }
 
+    public void choosePlacement(Board playerBoard, Board placementBoard){
+
+
+    }
+
 
 
     public void randomPlacement(){ };

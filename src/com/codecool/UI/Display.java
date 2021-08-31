@@ -28,6 +28,12 @@ public class Display {
         System.out.println("If you want to choose mode computer vs computer, please select 3.");
     }
 
+    public void printPlacementMode() {
+        System.out.println("If you want to place your ships yourself please select 1.");
+        System.out.println("If you want to place your ships automatically, please select 2.");
+    }
+
+
     public void printDifficultyLevels() {
         System.out.println("Please select the difficulty level from 1 to 3, where 1 is the easiest.");
     }

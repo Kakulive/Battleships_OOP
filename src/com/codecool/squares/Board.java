@@ -10,7 +10,7 @@ public class Board {
 
 
     public Board() {
-
+    createBoard();
     }
 
     private void createBoard(){
@@ -23,14 +23,14 @@ public class Board {
 
 
     public boolean isPlacementOk (Ship ship) {
-        ArrayList<Square> shipsElement = ship.getSquaresList();
-        for (Square shipElement : shipsElement){
-            if (shipElement.getX() >= 0 &&  shipElement.getY() >= 0 && shipElement.getX() <= ocean.length &&
-                    shipElement.getY() <= ocean.length);
-            if (([shipElement.getY()][shipElement.getX()]).getSquareStatus() != SquareStatus.EMPTY){
-                return false;
-            }
-        }
+//        ArrayList<Square> shipsElement = ship.getSquaresList();
+//        for (Square shipElement : shipsElement){
+//            if (shipElement.getX() >= 0 &&  shipElement.getY() >= 0 && shipElement.getX() <= ocean.length &&
+//                    shipElement.getY() <= ocean.length);
+//            if (([shipElement.getY()][shipElement.getX()]).getSquareStatus() != SquareStatus.EMPTY){
+//                return false;
+//            }
+//        }
         return false;
     };
 
