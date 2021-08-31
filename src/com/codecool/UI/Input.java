@@ -8,46 +8,48 @@ import com.codecool.UI.Display;
 import static java.lang.Integer.parseInt;
 
 public class Input {
+    Display display = new Display();
     Scanner sc = new Scanner(System.in);
 
     public boolean isValid(){
         return true;
     }
 
-    public String getGameMode(){
-        String gameMode = sc.nextLine();
-        if (gameMode.equals("1") || gameMode.equals("2") || gameMode.equals("3")) {
-             return gameMode;
+    public int getMode(){
+        String mode = sc.nextLine();
+        if (mode.equals("1") || mode.equals("2") || mode.equals("3")) {
+             return Integer.parseInt(mode);
         }
         else {
-//            display.printWrongValueAlert("1 to 3");
-            getGameMode();
+            display.printWrongValueAlert("1 to 3");
+            getMode();
         }
-        return null;
+        return 0;
     };
 
+
     public int getBoardSize() {
-        String bS = sc.nextLine();
-//        if (bS.equals("5") || bS.equals("6") ||bS.equals("7") ||bS.equals("8") ||bS.equals("9") ||bS.equals("10"))
-        if (Arrays.asList("5", "6", "7", "8"," 9", "10").contains(bS)){
-            return Integer.parseInt(bS);
+        String boardSize = sc.nextLine();
+        if (Arrays.asList("5", "6", "7", "8"," 9", "10").contains(boardSize)) {
+            return Integer.parseInt(boardSize);
         } else {
-//TODO alert
+            display.printWrongValueAlert("5 to 10");
             getBoardSize();
         }
         return 0;
     };
 
-    protected String getPlayerName(){
-        String playerName = sc.nextLine();
-        if (playerName.length() > 2){
-            return playerName;
-        }
-        else {
-            //TODO alert
-//            Display.printWrongNameAlert();
-            getPlayerName();
-        }
-        return null;
-    }
+    public int getValue(int minValue, int maxValue) {
+        String userInput = sc.next();
+         if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= minValue) {
+             return Integer.parseInt(userInput);
+         }
+         else {
+             display.printWrongValueAlert(String.format("%s to %s", minValue, maxValue));
+             getValue(minValue, maxValue);
+         }
+
+         return 0;
+    };
+
     }
