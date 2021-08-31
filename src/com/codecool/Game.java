@@ -51,7 +51,6 @@ public class Game {
                 this.player2 = new ComputerPlayer(display, input);
             }
         }
-
         this.boardFactory = new BoardFactory(display, input);
 
     }
@@ -100,5 +99,13 @@ public class Game {
     public boolean checkIfWin(){
         return false;
     };
+
+    public Board getPlacementBoardPlayer1() {
+        return placementBoardPlayer1;
+    }
+
+    public Board getPlacementBoardPlayer2() {
+        return placementBoardPlayer2;
+    }
 
 }
