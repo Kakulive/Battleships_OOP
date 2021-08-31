@@ -7,14 +7,14 @@ import com.codecool.squares.Board;
 import com.codecool.squares.BoardFactory;
 
 public class Game {
-//        private final Player player1;
-//    private final Player player2;
+
+    private Player player1;
+    private Player player2;
     private final BoardFactory boardFactory;
     private final Display display;
     private final Input input;
-    private  GameMode gameMode;
+    private GameMode gameMode;
     private DifficultyLevel difficultyLevel;
-
 
     private Board boardPlayer1 = new Board();
     private Board boardPlayer2 = new Board();
@@ -32,27 +32,27 @@ public class Game {
         this.gameMode = chooseGameMode();
         switch (gameMode){
             case PVP:{
-                Player player1 = new HumanPlayer(display, input);
-                Player player2 = new HumanPlayer(display, input);
+                this.player1 = new HumanPlayer(display, input);
+                this.player2 = new HumanPlayer(display, input);
                 break;}
             case PVC:{
-                Player player1 = new HumanPlayer(display, input);
+                this.player1 = new HumanPlayer(display, input);
                 this.difficultyLevel = chooseDifficultyLevel();
                 switch (difficultyLevel){
-                    case EASY: {Player player2 = new ComputerPlayerEasy(display, input);
+                    case EASY: {this.player2 = new ComputerPlayerEasy(display, input);
                         break;}
-                    case NORMAL: {Player player2 = new ComputerPlayerNormal(display, input);
+                    case NORMAL: {this.player2 = new ComputerPlayerNormal(display, input);
                         break;}
-                    case HARD: {Player player2 = new ComputerPlayerHard(display, input);
+                    case HARD: {this.player2 = new ComputerPlayerHard(display, input);
                         break;}
                 }}
-            break;
             case CVC: {
-                Player player1 = new ComputerPlayer(display, input);
-                Player player2 = new ComputerPlayer(display, input);
+                this.player1 = new ComputerPlayer(display, input);
+                this.player2 = new ComputerPlayer(display, input);
             }
         }
         this.boardFactory = new BoardFactory(display, input);
+
     }
 
     private DifficultyLevel chooseDifficultyLevel (){
@@ -90,7 +90,6 @@ public class Game {
         return gameMode;
     }
 
-
     public GameMode getGameMode() {
         return gameMode;
     }
@@ -110,4 +109,3 @@ public class Game {
     }
 
 }
-

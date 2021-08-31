@@ -58,7 +58,12 @@ public class Display {
     protected void printWrongNameAlert(){
                 System.out.println("Please provide longer planer name.");
     }
-        };
 
     ///"test"
 
+
+    public void printAskPlayerName(){
+        System.out.println("What is your name?");
+    }
+
+};

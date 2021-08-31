@@ -9,6 +9,7 @@ public class ComputerPlayer extends Player {
     private Input input;
 
     public ComputerPlayer(Display display, Input input) {
+        super();
         this.display = display;
         this.input = input;
     }

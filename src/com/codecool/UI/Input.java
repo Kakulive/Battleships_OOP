@@ -52,4 +52,10 @@ public class Input {
         return 0;
     };
 
+
+    public String getName(){
+        String name = sc.next();
+        return name;
+    }
+
 }

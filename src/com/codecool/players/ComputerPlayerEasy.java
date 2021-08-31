@@ -5,7 +5,7 @@ import com.codecool.UI.Input;
 
 public class ComputerPlayerEasy extends ComputerPlayer{
     private Display display;
-    private  Input input;
+    private Input input;
 
     public ComputerPlayerEasy(Display display, Input input) {
         super();

@@ -8,6 +8,7 @@ public class ComputerPlayerNormal extends ComputerPlayer{
     private Input input;
 
     public ComputerPlayerNormal(Display display, Input input) {
+        super();
         this.display = display;
         this.input = input;
     }
