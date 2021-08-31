@@ -55,6 +55,12 @@ public class Game {
 
     }
 
+    public void startGame(){
+        boardFactory.choosePlacement(boardPlayer1, placementBoardPlayer1);
+        boardFactory.choosePlacement(boardPlayer2, placementBoardPlayer2);
+
+    }
+
     private DifficultyLevel chooseDifficultyLevel (){
         display.printDifficultyLevels();
         int difficultyNumber = input.getValue(1,3);
