@@ -5,14 +5,20 @@ import com.codecool.squares.Board;
 import com.codecool.squares.BoardFactory;
 import com.codecool.squares.Ship;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
-    private List<Ship> shipList;
+
+    private List<Ship> shipList = new ArrayList<>();
 
 
     public Player() {
 
+    }
+
+    public List<Ship> getShipList() {
+        return shipList;
     }
 
     public boolean isAlive(){
@@ -22,6 +28,10 @@ public class Player {
     public Board shoot(Board shootingBoard, Board EnemyBoard){
         return shootingBoard;
     };
+
+
+    public void shoot(){};
+
 
 
 }
