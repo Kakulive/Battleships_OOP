@@ -22,19 +22,31 @@ public class Board {
     }
 
 
-    public boolean isPlacementOk (Ship ship) {
-//        ArrayList<Square> shipsElement = ship.getSquaresList();
-//        for (Square shipElement : shipsElement){
-//            if (shipElement.getX() >= 0 &&  shipElement.getY() >= 0 && shipElement.getX() <= ocean.length &&
-//                    shipElement.getY() <= ocean.length);
-//            if (([shipElement.getY()][shipElement.getX()]).getSquareStatus() != SquareStatus.EMPTY){
-//                return false;
-//            }
-//        }
-        return false;
+    public boolean isPlacementOk (Ship ship, Square[][] ocean) {
+        ArrayList<Square> shipsElements = ship.getSquaresList();
+        for (Square shipElement : shipsElements){
+            if (shipElement.getX() <= 0 &&  shipElement.getY() <= 0 && shipElement.getX() >= ocean.length &&
+                    shipElement.getY() >= ocean.length)
+            {
+                return false;
+            }
+            if ((ocean[shipElement.getY()][shipElement.getX()]).getSquareStatus() != SquareStatus.EMPTY){
+                return false;
+            }
+        }
+        return true;
     };
 
+    public int getBoardLength() {
+        return boardLength;
+    }
 
+    public Square[][] getOcean() {
+        return ocean;
+    }
 
+    public void setOcean(Square[][] ocean) {
+        this.ocean = ocean;
+    }
 }
 
