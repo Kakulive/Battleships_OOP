@@ -61,6 +61,11 @@ public class Game {
 
     }
 
+    public void playRound(){
+        shootingBoardPlayer1 = player1.shoot(shootingBoardPlayer1, placementBoardPlayer2);
+        shootingBoardPlayer2 = player2.shoot(shootingBoardPlayer2, placementBoardPlayer1);
+    }
+
     private DifficultyLevel chooseDifficultyLevel (){
         display.printDifficultyLevels();
         int difficultyNumber = input.getValue(1,3);

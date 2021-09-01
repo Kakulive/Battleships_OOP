@@ -2,6 +2,7 @@ package com.codecool.players;
 
 import com.codecool.UI.Display;
 import com.codecool.UI.Input;
+import com.codecool.squares.Board;
 
 public class ComputerPlayerEasy extends ComputerPlayer{
     private Display display;
@@ -14,7 +15,8 @@ public class ComputerPlayerEasy extends ComputerPlayer{
     }
 
     @Override
-    public void shoot() {
-        super.shoot();
+    public Board shoot(Board shootingBoard, Board enemyBoard) {
+        super.shoot(shootingBoard, enemyBoard);
+        return shootingBoard;
     }
 }

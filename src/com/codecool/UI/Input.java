@@ -58,4 +58,8 @@ public class Input {
         return name;
     }
 
+    public String getSingleCoordinate(){
+        String userCoordinate = sc.next();
+        return userCoordinate;
+    }
 }

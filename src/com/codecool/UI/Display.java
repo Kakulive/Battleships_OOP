@@ -1,5 +1,6 @@
 package com.codecool.UI;
 
+import com.codecool.squares.Board;
 
 public class Display {
 
@@ -53,7 +54,7 @@ public class Display {
 
     }
 
-    public void printBoard(){};
+    public void printBoard(Board board){};
     public void printGameplay(){};
     public void printOutcome(){};
 
@@ -70,6 +71,14 @@ public class Display {
 
     public void printAskPlayerName(){
         System.out.println("What is your name?");
+    }
+
+    public void printAskPlayerAboutCoordinates() {
+        System.out.println("What is your net coordinate to shoot?");
+    }
+
+    public void printWrongCoordinates(){
+        System.out.println("You provided wrong coordinates. It must be Letter and digit with size of board.");
     }
 
 };

@@ -34,7 +34,9 @@ public class Board {
         return false;
     };
 
-
+    public int getBoardLength(){
+        return this.boardLength;
+    }
 
 }
 
