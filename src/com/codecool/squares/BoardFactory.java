@@ -13,6 +13,10 @@ public class BoardFactory
     private Input input;
     private Random random = new Random();
 
+    public BoardFactory() {
+
+    }
+
     public BoardFactory(Display display, Input input) {
         this.display = display;
         this.input = input;

@@ -37,12 +37,14 @@ public class Board {
         return true;
     };
 
+
     public int getBoardLength() {
         return boardLength;
     }
 
     public Square[][] getOcean() {
         return ocean;
+
     }
 
     public void setOcean(Square[][] ocean) {
