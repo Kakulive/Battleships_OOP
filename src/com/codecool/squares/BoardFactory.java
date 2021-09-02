@@ -5,6 +5,7 @@ import com.codecool.UI.Input;
 import com.codecool.players.HumanPlayer;
 import com.codecool.players.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -12,16 +13,19 @@ public class BoardFactory
 {
     private Display display;
     private Input input;
-    private Random random = new Random();
+    private Random random;
+    private Ship ship;
 
-    public BoardFactory() {
-
-    }
 
     public BoardFactory(Display display, Input input) {
         this.display = display;
         this.input = input;
+        this.random = new Random();
+
+
     }
+
+
 
     public void choosePlacement(Player player, Board playerBoard, Board placementBoard){
         display.printMessage(String.format("%s, your turn!", player.getName()));
@@ -38,21 +42,22 @@ public class BoardFactory
 
 
     public void randomPlacement(Player player, Board playerBoard, Board placementBoard){
-        for (Ship ship : player.getShipList()){
+
+        for (Ship currentShip : player.getShipList()){
             do{
-                ship.setShipStartX(random.nextInt(10));
-                ship.setShipStartY(random.nextInt(10));
-                ship.setShipOrientation(random.nextInt(2) == 0 ? ShipOrientation.HORIZONTAL : ShipOrientation.VERTICAL);
-//                ship.setSquaresList();
-            } while (!playerBoard.isPlacementOk(ship, placementBoard.getOcean()));
-            ship.placeShip(playerBoard.getOcean());
-            ship.placeShipOnPlacementBoard(placementBoard.getOcean());
-
+                currentShip.setShipStartX(random.nextInt(10));
+                currentShip.setShipStartY(random.nextInt(10));
+                currentShip.setShipOrientation(random.nextInt(2) == 0 ? ShipOrientation.HORIZONTAL : ShipOrientation.VERTICAL);
+                currentShip.setSquaresList();
+            } while (!(playerBoard.isPlacementOk(currentShip, placementBoard.getOcean())));
+            currentShip.placeShip(playerBoard.getOcean());
+            currentShip.placeShipOnPlacementBoard(placementBoard.getOcean());}
+        display.printBoard(playerBoard.getOcean());
         }
-        display.printBoard(placementBoard.getOcean());
 
 
-    };
+
+
     public void manualPlacement(Player player, Board playerBoard, Board placementBoard){
 
     };

@@ -25,7 +25,7 @@ public class Board {
     public boolean isPlacementOk (Ship ship, Square[][] ocean) {
         ArrayList<Square> shipsElements = ship.getSquaresList();
         for (Square shipElement : shipsElements){
-            if (shipElement.getX() <= 0 &&  shipElement.getY() <= 0 && shipElement.getX() >= ocean.length &&
+            if (shipElement.getX() < 0 ||  shipElement.getY() < 0 || shipElement.getX() >= ocean.length ||
                     shipElement.getY() >= ocean.length)
             {
                 return false;
