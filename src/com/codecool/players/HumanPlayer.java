@@ -9,18 +9,18 @@ import com.codecool.squares.Square;
 public class HumanPlayer extends Player{
     private Display display;
     private Input input;
-    private String name;
     private int boardLength;
     private Boolean properCoordinate = false;
     private int rowNr;
     private int colNr;
+    private String name;
 
     public HumanPlayer(Display display, Input input) {
         super();
         this.display = display;
         this.input = input;
         display.printAskPlayerName();
-        name = input.getName();
+        this.name = input.getName();
 
     }
 
@@ -28,7 +28,7 @@ public class HumanPlayer extends Player{
     public Board shoot(Board shootingBoard, Board enemyBoard) {
         super.shoot(shootingBoard, enemyBoard);
         this.boardLength = shootingBoard.getBoardLength();
-        display.printBoard(shootingBoard);
+        display.printBoard(shootingBoard.getOcean());
         do {
             display.printAskPlayerAboutCoordinates();
             String userCoordinate = this.input.getSingleCoordinate();
@@ -47,6 +47,7 @@ public class HumanPlayer extends Player{
         return shootingBoard;
     }
 
-
-
+    public String getName() {
+        return name;
+    }
 }

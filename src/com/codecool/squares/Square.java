@@ -17,8 +17,8 @@ public class Square {
 
 
 
-    public String getCharacter(SquareStatus status){
-        switch (status){
+    public String getCharacter(){
+        switch (squareStatus){
             case EMPTY:
                 return  "\033[0;94m" + "\uD83C\uDF0A";
             case HIT:
