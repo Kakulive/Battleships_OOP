@@ -67,8 +67,6 @@ public class Display {
 
     }
 
-
-
     public void printGameplay(){};
     public void printOutcome(){};
 
