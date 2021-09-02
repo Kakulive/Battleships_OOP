@@ -61,12 +61,9 @@ public class Game {
 
     }
 
-    public void playRound(){
-        player1.shoot(shootingBoardPlayer1, boardPlayer2);
-        player2.shoot(shootingBoardPlayer2, boardPlayer1);
-
+    public boolean isGameOver(){
+        return false;
     }
-
 
     public void playRound(){
         shootingBoardPlayer1 = player1.shoot(shootingBoardPlayer1, placementBoardPlayer2);
