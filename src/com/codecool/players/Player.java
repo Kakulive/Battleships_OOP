@@ -10,9 +10,8 @@ import java.util.List;
 
 public class Player {
 
+    private String name;
     private List<Ship> shipList = new ArrayList<>();
-
-
     public Player() {
 
     }
@@ -30,8 +29,11 @@ public class Player {
     };
 
 
+
+
     public void shoot(){};
 
-
-
+    public String getName() {
+        return name;
+    }
 }

@@ -1,6 +1,7 @@
 package com.codecool.UI;
 
 import com.codecool.squares.Board;
+import com.codecool.squares.Square;
 
 public class Display {
 
@@ -54,7 +55,20 @@ public class Display {
 
     }
 
-    public void printBoard(Board board){};
+    public void printBoard(Square[][] ocean){
+        printColumnNumbers(ocean[0].length);
+        for (int i = 0; i < ocean.length; i++) {
+            System.out.printf("%2s",  (char) (0x0041 + i));
+            for (int j = 0; j < ocean[i].length; j++) {
+                System.out.print(ocean[i][j].getCharacter());
+            }
+            System.out.println();
+        }
+
+    }
+
+
+
     public void printGameplay(){};
     public void printOutcome(){};
 
@@ -79,6 +93,14 @@ public class Display {
 
     public void printWrongCoordinates(){
         System.out.println("You provided wrong coordinates. It must be Letter and digit with size of board.");
+    }
+
+    private void printColumnNumbers(int gameBoardLength) {
+        System.out.print("  ");
+        for (int i = 0; i < gameBoardLength; i++) {
+            System.out.printf("%2s", (1 + i));
+        }
+        System.out.println();
     }
 
 };

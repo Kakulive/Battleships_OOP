@@ -50,6 +50,7 @@ public class Game {
             }
         }
         this.boardFactory = new BoardFactory(display, input);
+
     }
 
     public void startGame(){
