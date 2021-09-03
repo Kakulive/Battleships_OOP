@@ -1,24 +1,22 @@
 package com.codecool.UI;
 
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-import com.codecool.UI.Display;
 
 import static java.lang.Integer.parseInt;
 
 public class Input {
     public Display display;
     public Scanner sc;
-    private  LettersToInt[] lettersToInt;
+
 
 
 
     public Input() {
         this.display = new Display();
         this.sc = new Scanner(System.in);
-        this.lettersToInt = LettersToInt.values();
     }
 
     public boolean isValid(){
@@ -51,7 +49,26 @@ public class Input {
 
     public int getRowNumber () {
         String rowLetter = sc.nextLine();
-        if (Arrays.asList(lettersToInt).contains(rowLetter.toUpperCase(Locale.ROOT))){
+        List<String> letterList = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
+        if (letterList.contains(rowLetter.toUpperCase(Locale.ROOT))){
+           return letterList.lastIndexOf(rowLetter.toUpperCase(Locale.ROOT));
+        }
+        else {
+            display.printWrongValueAlert("A - J");
+            getRowNumber();
+        }
+        return 0;
+    }
+
+
+    public int getColumnNumber () {
+        String userInput = sc.next();
+        if (Integer.parseInt(userInput) >= 1 && Integer.parseInt(userInput) <= 10) {
+            return Integer.parseInt(userInput) - 1;
+        }
+        else {
+            display.printWrongValueAlert("1 - 10");
+            getRowNumber();
         }
         return 0;
     }
@@ -68,6 +85,8 @@ public class Input {
 
         return 0;
     };
+
+
 
 
     public String getName(){
