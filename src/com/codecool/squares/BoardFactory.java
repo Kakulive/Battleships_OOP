@@ -56,12 +56,30 @@ public class BoardFactory
         }
 
 
-
-
     public void manualPlacement(Player player, Board playerBoard, Board placementBoard){
-
+        display.printMessage("You chose manual ship placement. Place your ships.");
+        for (Ship currentShip : player.getShipList()){
+            boolean isFirstTry = true;
+            display.printBoard(playerBoard.getOcean());
+            do{
+                if (!isFirstTry){
+                    display.printMessage("You can not place your ship on the place you chose. Please select other option.");
+                }
+                display.printMessage("Please insert row letter: ");
+                int rowNumber = input.getRowNumber();
+                currentShip.setShipStartY(rowNumber);
+                display.printMessage("Please insert column number: ");
+                int columnNumber = input.getColumnNumber();
+                currentShip.setShipStartX(columnNumber);
+                display.printMessage("Please insert orientation, where 1 means Horizontal and 2 means Vertical");
+                int orientation = input.getValue(1,2);
+                currentShip.setShipOrientation(orientation == 1 ? ShipOrientation.HORIZONTAL : ShipOrientation.VERTICAL);
+                currentShip.setSquaresList();
+                isFirstTry = false;
+            } while (!(playerBoard.isPlacementOk(currentShip, placementBoard.getOcean())));
+            currentShip.placeShip(playerBoard.getOcean());
+            currentShip.placeShipOnPlacementBoard(placementBoard.getOcean());}
+        display.printBoard(playerBoard.getOcean());
     };
-
-
 
 }
