@@ -51,7 +51,7 @@ public class Input {
         String rowLetter = sc.nextLine();
         List<String> letterList = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
         if (letterList.contains(rowLetter.toUpperCase(Locale.ROOT))){
-           return letterList.lastIndexOf(rowLetter.toUpperCase(Locale.ROOT));
+           return letterList.indexOf(rowLetter.toUpperCase(Locale.ROOT));
         }
         else {
             display.printWrongValueAlert("A - J");
