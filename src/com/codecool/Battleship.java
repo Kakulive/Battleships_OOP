@@ -10,8 +10,8 @@ public class Battleship {
     private Boolean exit;
 
     public Battleship() {
+        this.input = new Input();
         this.display = new Display();
-        input = new Input();
         this.exit = false;
     }
 

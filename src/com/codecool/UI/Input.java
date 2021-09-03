@@ -2,14 +2,24 @@ package com.codecool.UI;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 import com.codecool.UI.Display;
 
 import static java.lang.Integer.parseInt;
 
 public class Input {
-    Display display = new Display();
-    Scanner sc = new Scanner(System.in);
+    public Display display;
+    public Scanner sc;
+    private  LettersToInt[] lettersToInt;
+
+
+
+    public Input() {
+        this.display = new Display();
+        this.sc = new Scanner(System.in);
+        this.lettersToInt = LettersToInt.values();
+    }
 
     public boolean isValid(){
         return true;
@@ -39,6 +49,13 @@ public class Input {
         return 0;
     };
 
+    public int getRowNumber () {
+        String rowLetter = sc.nextLine();
+        if (Arrays.asList(lettersToInt).contains(rowLetter.toUpperCase(Locale.ROOT))){
+        }
+        return 0;
+    }
+
     public int getValue(int minValue, int maxValue) {
         String userInput = sc.next();
         if (Integer.parseInt(userInput) >= minValue && Integer.parseInt(userInput) <= maxValue) {
@@ -62,4 +79,6 @@ public class Input {
         String userCoordinate = sc.next();
         return userCoordinate;
     }
+
+
 }
