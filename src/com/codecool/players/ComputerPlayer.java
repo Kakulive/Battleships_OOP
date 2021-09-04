@@ -10,14 +10,12 @@ public class ComputerPlayer extends Player {
     private Input input;
 
     public ComputerPlayer(Display display, Input input) {
-        super();
+        super(display, input);
         this.display = display;
         this.input = input;
     }
 
-    public ComputerPlayer() {
 
-    }
 
     @Override
     public void shoot(Player enemyPlayer, Board shootingBoard, Board enemyBoard) {

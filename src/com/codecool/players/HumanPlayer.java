@@ -15,7 +15,7 @@ public class HumanPlayer extends Player{
     private String name;
 
     public HumanPlayer(Display display, Input input) {
-        super();
+        super(display, input);
         this.display = display;
         this.input = input;
         display.printAskPlayerName();
@@ -32,27 +32,17 @@ public class HumanPlayer extends Player{
         do {
             display.printAskPlayerAboutCoordinates();
             display.printMessage("Please insert row letter: ");
-            this.rowNr = input.getRowNumber();
+            rowNr = input.getRowNumber();
             display.printMessage("Please insert column number: ");
-            this.colNr = input.getColumnNumber();
-            if (this.rowNr  <= this.boardLength && this.colNr <= this.boardLength){
+            colNr = input.getColumnNumber();
+            if (rowNr  <= this.boardLength && colNr <= this.boardLength){
                 this.properCoordinate = true;
             }else{
                 display.printWrongCoordinates();
             }
         } while(this.properCoordinate==false);
 
-        if (enemyBoard.getOcean()[this.rowNr][this.colNr].getSquareStatus() == SquareStatus.SHIP){
-            enemyBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.HIT);
-            shootingBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.HIT);
-            display.printMessage("Enemy's ship has got shot!");
-        }else if(enemyBoard.getOcean()[this.rowNr][this.colNr].getSquareStatus() == SquareStatus.EMPTY){
-            shootingBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.MISSED);
-
-            display.printMessage("Not this time. Missed shot!");
-        }
-        display.printBoard(shootingBoard.getOcean());
-        input.anyKeyToContinue();
+        this.changeSquareStatus(enemyPlayer, shootingBoard, enemyBoard, rowNr, colNr);
 
 
     }
