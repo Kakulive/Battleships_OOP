@@ -63,6 +63,22 @@ public class Input {
     }
 
 
+
+
+    public int getOrientation () {
+        String orientation = sc.next();
+        String [] letterList = {"H", "V"};
+        if ((Arrays.asList(letterList)).contains(orientation.toUpperCase())){
+            int orientationNumber = (Arrays.asList(letterList)).indexOf(orientation.toUpperCase());
+            return orientationNumber;
+        }
+        else {
+            display.printWrongValueAlert("H and V");
+            getOrientation();
+        };
+        return 0;
+    }
+
     public int getColumnNumber () {
         String userInput = sc.next();
         if (Integer.parseInt(userInput) >= 1 && Integer.parseInt(userInput) <= 10) {
@@ -89,8 +105,14 @@ public class Input {
     };
 
     public void anyKeyToContinue () {
-        display.printMessage("Press Enter to continue...");
-        sc.nextLine();
+        display.printMessage("Press \"ENTER\" to continue...");
+        try
+        {
+            System.in.read();
+        }
+        catch(Exception e)
+        {}
+        display.clearScreen();
     }
 
 
