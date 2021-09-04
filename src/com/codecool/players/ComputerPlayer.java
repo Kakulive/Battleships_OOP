@@ -20,8 +20,8 @@ public class ComputerPlayer extends Player {
     }
 
     @Override
-    public Board shoot(Board shootingBoard, Board enemyBoard) {
-        super.shoot(shootingBoard, enemyBoard);
-        return shootingBoard;
+    public void shoot(Player enemyPlayer, Board shootingBoard, Board enemyBoard) {
+        super.shoot(enemyPlayer, shootingBoard, enemyBoard);
+
     }
 }

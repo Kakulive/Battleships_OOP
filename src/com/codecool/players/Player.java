@@ -12,7 +12,7 @@ import java.util.List;
 public class Player {
 
     private String name;
-    private List<Ship> shipList;
+    protected List<Ship> shipList;
 
     public Player() {
     this.shipList = new ArrayList<>();
@@ -42,8 +42,8 @@ public class Player {
         return !this.shipList.isEmpty();
     }
 
-    public Board shoot(Board shootingBoard, Board EnemyBoard){
-        return shootingBoard;
+    public void shoot(Player enemyPlayer, Board shootingBoard, Board EnemyBoard){
+
     };
 
     public void shoot(){};

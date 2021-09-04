@@ -2,8 +2,7 @@ package com.codecool.players;
 
 import com.codecool.UI.Display;
 import com.codecool.UI.Input;
-import com.codecool.squares.Board;
-import com.codecool.squares.Square;
+import com.codecool.squares.*;
 
 
 public class HumanPlayer extends Player{
@@ -25,27 +24,39 @@ public class HumanPlayer extends Player{
     }
 
     @Override
-    public Board shoot(Board shootingBoard, Board enemyBoard) {
-        super.shoot(shootingBoard, enemyBoard);
+    public void shoot(Player enemyPlayer, Board shootingBoard, Board enemyBoard) {
+        super.shoot(enemyPlayer, shootingBoard, enemyBoard);
         this.boardLength = shootingBoard.getBoardLength();
+        display.printMessage(this.name + ", it's your turn!");
         display.printBoard(shootingBoard.getOcean());
         do {
             display.printAskPlayerAboutCoordinates();
-            String userCoordinate = this.input.getSingleCoordinate();
-            if (userCoordinate.length() == 2){
-                this.rowNr = Integer.parseInt(String.valueOf(userCoordinate.charAt(0)));
-                this.colNr = Integer.parseInt(String.valueOf(userCoordinate.charAt(1)));
-                if (rowNr <= this.boardLength && colNr <= this.boardLength){
-                    this.properCoordinate = true;
-                }
+            display.printMessage("Please insert row letter: ");
+            this.rowNr = input.getRowNumber();
+            display.printMessage("Please insert column number: ");
+            this.colNr = input.getColumnNumber();
+            if (this.rowNr  <= this.boardLength && this.colNr <= this.boardLength){
+                this.properCoordinate = true;
             }else{
                 display.printWrongCoordinates();
             }
-        } while(this.properCoordinate==true);
+        } while(this.properCoordinate==false);
 
-      
-        return shootingBoard;
+        if (enemyBoard.getOcean()[this.rowNr][this.colNr].getSquareStatus() == SquareStatus.SHIP){
+            enemyBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.HIT);
+            shootingBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.HIT);
+            display.printMessage("Enemy's ship has got shot!");
+        }else if(enemyBoard.getOcean()[this.rowNr][this.colNr].getSquareStatus() == SquareStatus.EMPTY){
+            shootingBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.MISSED);
+            display.printMessage("Not this time. Missed shot!");
+        }
+
+
     }
+
+    public void manualPlacement(Player player, Board playerBoard, Board placementBoard){
+
+    };
 
     public String getName() {
         return name;

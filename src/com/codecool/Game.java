@@ -67,8 +67,8 @@ public class Game {
     }
 
     public void playRound(){
-        shootingBoardPlayer1 = player1.shoot(shootingBoardPlayer1, placementBoardPlayer2);
-        shootingBoardPlayer2 = player2.shoot(shootingBoardPlayer2, placementBoardPlayer1);
+        player1.shoot(player2, shootingBoardPlayer1, placementBoardPlayer2);
+        player2.shoot(player1, shootingBoardPlayer2, placementBoardPlayer1);
     }
 
 
