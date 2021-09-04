@@ -24,26 +24,34 @@ public class Game {
     private Board placementBoardPlayer1 = new Board();
     private Board placementBoardPlayer2 = new Board();
 
-    public Game(Display display, Input input){
+    public Game(Display display, Input input) {
         this.display = display;
         this.input = input;
         this.gameMode = chooseGameMode();
-        switch (gameMode){
-            case PVP:{
+        switch (gameMode) {
+            case PVP: {
                 this.player1 = new HumanPlayer(display, input);
                 this.player2 = new HumanPlayer(display, input);
-                break;}
-            case PVC:{
+                break;
+            }
+            case PVC: {
                 this.player1 = new HumanPlayer(display, input);
                 this.difficultyLevel = chooseDifficultyLevel();
-                switch (difficultyLevel){
-                    case EASY: {this.player2 = new ComputerPlayerEasy(display, input);
-                        break;}
-                    case NORMAL: {this.player2 = new ComputerPlayerNormal(display, input);
-                        break;}
-                    case HARD: {this.player2 = new ComputerPlayerHard(display, input);
-                        break;}
-                }}
+                switch (difficultyLevel) {
+                    case EASY: {
+                        this.player2 = new ComputerPlayerEasy(display, input);
+                        break;
+                    }
+                    case NORMAL: {
+                        this.player2 = new ComputerPlayerNormal(display, input);
+                        break;
+                    }
+                    case HARD: {
+                        this.player2 = new ComputerPlayerHard(display, input);
+                        break;
+                    }
+                }
+            }
             case CVC: {
                 this.player1 = new ComputerPlayer(display, input);
                 this.player2 = new ComputerPlayer(display, input);
@@ -53,35 +61,41 @@ public class Game {
 
     }
 
-    public void startGame(){
+    public void startGame() {
         boardFactory.choosePlacement(player1, boardPlayer1, placementBoardPlayer1);
         boardFactory.choosePlacement(player2, boardPlayer2, placementBoardPlayer2);
-        while (! isGameOver()){
+        while (!isGameOver()) {
             playRound();
         }
 
     }
 
-    public boolean isGameOver(){
+    public boolean isGameOver() {
         return false;
     }
 
-    public void playRound(){
-        player1.shoot(player2, shootingBoardPlayer1, placementBoardPlayer2);
-        player2.shoot(player1, shootingBoardPlayer2, placementBoardPlayer1);
+    public void playRound() {
+        player1.shoot(player2, shootingBoardPlayer1, boardPlayer2);
+        player2.shoot(player1, shootingBoardPlayer2, boardPlayer1);
     }
 
 
-    private DifficultyLevel chooseDifficultyLevel (){
+    private DifficultyLevel chooseDifficultyLevel() {
         display.printDifficultyLevels();
-        int difficultyNumber = input.getValue(1,3);
+        int difficultyNumber = input.getValue(1, 3);
         switch (difficultyNumber) {
-            case 1: {this.difficultyLevel = DifficultyLevel.EASY;
-                break;}
-            case 2: {this.difficultyLevel = DifficultyLevel.NORMAL;
-                break;}
-            case 3: {this.difficultyLevel = DifficultyLevel.HARD;
-                break;}
+            case 1: {
+                this.difficultyLevel = DifficultyLevel.EASY;
+                break;
+            }
+            case 2: {
+                this.difficultyLevel = DifficultyLevel.NORMAL;
+                break;
+            }
+            case 3: {
+                this.difficultyLevel = DifficultyLevel.HARD;
+                break;
+            }
         }
         return difficultyLevel;
     }
@@ -91,18 +105,21 @@ public class Game {
         display.printGameMode();
         int gameModeNumber = input.getValue(1, 3);
         switch (gameModeNumber) {
-            case 1:{
+            case 1: {
                 display.printMessage("You chose Player vs Player mode.");
                 this.gameMode = GameMode.PVP;
-                break;}
-            case 2:{
+                break;
+            }
+            case 2: {
                 display.printMessage("You chose Player vs computer mode.");
                 gameMode = GameMode.PVC;
-                break;}
-            case 3:{
+                break;
+            }
+            case 3: {
                 display.printMessage("You chose computer vs computer mode.");
                 gameMode = GameMode.CVC;
-                break;}
+                break;
+            }
         }
         return gameMode;
     }
@@ -111,11 +128,16 @@ public class Game {
         return gameMode;
     }
 
-    public void move(){};
+    public void move() {
+    }
 
-    public boolean checkIfWin(){
+
+
+    public boolean checkIfWin() {
         return false;
-    };
+    }
+
+
 
     public Board getPlacementBoardPlayer1() {
         return placementBoardPlayer1;
