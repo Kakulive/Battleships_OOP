@@ -24,7 +24,7 @@ public class Input {
     }
 
     public int getMode(){
-        String mode = sc.nextLine();
+        String mode = sc.next();
         if (mode.equals("1") || mode.equals("2") || mode.equals("3")) {
             return Integer.parseInt(mode);
         }
@@ -37,7 +37,7 @@ public class Input {
 
 
     public int getBoardSize() {
-        String boardSize = sc.nextLine();
+        String boardSize = sc.next();
         if (Arrays.asList("5", "6", "7", "8"," 9", "10").contains(boardSize)) {
             return Integer.parseInt(boardSize);
         } else {
@@ -48,15 +48,17 @@ public class Input {
     };
 
     public int getRowNumber () {
-        String rowLetter = sc.nextLine();
-        List<String> letterList = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J");
-        if (letterList.contains(rowLetter.toUpperCase())){
-           return letterList.indexOf(rowLetter.toUpperCase());
+        String rowLetter = sc.next();
+        String [] letterList = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"};
+
+        if ((Arrays.asList(letterList)).contains(rowLetter.toUpperCase())){
+            int rowNumber = (Arrays.asList(letterList)).indexOf(rowLetter.toUpperCase());
+           return rowNumber;
         }
         else {
             display.printWrongValueAlert("A - J");
             getRowNumber();
-        }
+        };
         return 0;
     }
 
