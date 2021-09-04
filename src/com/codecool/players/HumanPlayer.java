@@ -53,7 +53,6 @@ public class HumanPlayer extends Player{
         }
         display.printBoard(shootingBoard.getOcean());
         input.anyKeyToContinue();
-        display.clearScreen();
 
 
     }

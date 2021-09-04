@@ -57,7 +57,7 @@ public class BoardFactory
 
 
     public void manualPlacement(Player player, Board playerBoard, Board placementBoard){
-        display.printMessage("You chose manual ship placement. Place your ships.");
+        display.printMessage(String.format("%s you chose manual ship placement. Place your ships.", player.getName()));
         for (Ship currentShip : player.getShipList()){
             boolean isFirstTry = true;
             display.printBoard(playerBoard.getOcean());
