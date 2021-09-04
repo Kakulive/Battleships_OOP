@@ -2,7 +2,7 @@ package com.codecool.squares;
 
 import java.util.ArrayList;
 
-public class Ship{
+public class Ship {
 
     ArrayList<Square> squaresList;
     ArrayList<Square> placementSquaresList;
@@ -21,40 +21,35 @@ public class Ship{
     }
 
 
-
-
-    public void placeShip (Square[][] ocean) {
-        for (int i=0; i < this.shipType.getShipLength(); i++) {
-            switch (this.shipOrientation){
-                case HORIZONTAL:
-                {
+    public void placeShip(Square[][] ocean) {
+        for (int i = 0; i < this.shipType.getShipLength(); i++) {
+            switch (this.shipOrientation) {
+                case HORIZONTAL: {
                     ocean[this.shipStartY][this.shipStartX + i].setSquareStatus(SquareStatus.SHIP);
                     break;
                 }
-                case VERTICAL:
-                {
+                case VERTICAL: {
                     ocean[this.shipStartY + i][this.shipStartX].setSquareStatus(SquareStatus.SHIP);
                     break;
                 }
             }
         }
     }
-    public void placeShipOnPlacementBoard (Square[][] ocean) {
-        for (int i=0; i < this.shipType.getShipLength(); i++) {
-            switch (this.shipOrientation){
-                case HORIZONTAL:
-                {
-                    for (int j = -1; j< 2; j++) {
+
+    public void placeShipOnPlacementBoard(Square[][] ocean) {
+        for (int i = 0; i < this.shipType.getShipLength(); i++) {
+            switch (this.shipOrientation) {
+                case HORIZONTAL: {
+                    for (int j = -1; j < 2; j++) {
                         for (int k = -1; k < 2; k++)
-                            if ((this.shipStartY + j) >= 0 && (this.shipStartY + j) < ocean.length && this.shipStartX + i + k >= 0 && this.shipStartX + i + k < ocean.length){
-                        ocean[this.shipStartY + j ][this.shipStartX + i + k].setSquareStatus(SquareStatus.SHIP);
+                            if ((this.shipStartY + j) >= 0 && (this.shipStartY + j) < ocean.length && this.shipStartX + i + k >= 0 && this.shipStartX + i + k < ocean.length) {
+                                ocean[this.shipStartY + j][this.shipStartX + i + k].setSquareStatus(SquareStatus.SHIP);
                             }
                     }
                     break;
                 }
-                case VERTICAL:
-                {
-                    for (int j = -1; j< 2; j++) {
+                case VERTICAL: {
+                    for (int j = -1; j < 2; j++) {
                         for (int k = -1; k < 2; k++)
                             if ((this.shipStartY + i + j) >= 0 && (this.shipStartY + i + j) < ocean.length && this.shipStartX + k >= 0 && this.shipStartX + k < ocean.length) {
                                 ocean[this.shipStartY + i + j][this.shipStartX + k].setSquareStatus(SquareStatus.SHIP);
@@ -63,8 +58,10 @@ public class Ship{
                     break;
 
 
+                }
+            }
         }
-    }}}
+    }
 
     public ArrayList<Square> getSquaresList() {
         return squaresList;
@@ -81,18 +78,16 @@ public class Ship{
 
     public void setSquaresList() {
         this.squaresList.clear();
-        for (int i=0; i < this.shipType.getShipLength(); i++) {
-            switch (this.shipOrientation){
-                case HORIZONTAL:
-                {
+        for (int i = 0; i < this.shipType.getShipLength(); i++) {
+            switch (this.shipOrientation) {
+                case HORIZONTAL: {
                     this.squaresList.add(
-                    new Square(this.shipStartY, this.shipStartX + i, SquareStatus.SHIP));
+                            new Square(this.shipStartY, this.shipStartX + i, SquareStatus.SHIP));
                     break;
                 }
-                case VERTICAL:
-                {
+                case VERTICAL: {
                     this.squaresList.add(
-                    new Square(this.shipStartY + i, this.shipStartX, SquareStatus.SHIP));
+                            new Square(this.shipStartY + i, this.shipStartX, SquareStatus.SHIP));
                     break;
                 }
             }

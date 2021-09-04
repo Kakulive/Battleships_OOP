@@ -48,8 +48,12 @@ public class HumanPlayer extends Player{
             display.printMessage("Enemy's ship has got shot!");
         }else if(enemyBoard.getOcean()[this.rowNr][this.colNr].getSquareStatus() == SquareStatus.EMPTY){
             shootingBoard.getOcean()[this.rowNr][this.colNr].setSquareStatus(SquareStatus.MISSED);
+
             display.printMessage("Not this time. Missed shot!");
         }
+        display.printBoard(shootingBoard.getOcean());
+        input.anyKeyToContinue();
+        display.clearScreen();
 
 
     }

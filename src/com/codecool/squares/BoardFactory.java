@@ -79,7 +79,10 @@ public class BoardFactory
             } while (!(playerBoard.isPlacementOk(currentShip, placementBoard.getOcean())));
             currentShip.placeShip(playerBoard.getOcean());
             currentShip.placeShipOnPlacementBoard(placementBoard.getOcean());}
+        display.printMessage("Dear player, this is your board.");
         display.printBoard(playerBoard.getOcean());
+        input.anyKeyToContinue();
+        display.clearScreen();
     };
 
 }
